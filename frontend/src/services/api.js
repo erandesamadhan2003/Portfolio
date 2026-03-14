@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:3000/api";
+const BASE_URL = "https://portfolio-1-0ka3.onrender.com/api";
 
 export const API_URL = {
     PROJECTS: "/projects",

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import heroImage from "../../assets/hero.png";
 import samadhan from "../../assets/samadhan.jpg";
 
 import {
@@ -116,7 +115,7 @@ const pipeline = [
 const stats = [
     ["Projects Built", "15+", FaCode],
     ["Technologies Used", "20+", MdDeveloperMode],
-    ["GitHub Commits", "1000+", SiGithub],
+    ["GitHub Commits", "600+", SiGithub],
     ["Years of Development", "3+", FaRocket],
 ];
 
