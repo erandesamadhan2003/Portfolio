@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import heroImage from "../../assets/hero.png";
+import samadhan from "../../assets/samadhan.jpg";
 
 import {
     SiReact,
@@ -204,7 +205,7 @@ function AboutPageContent() {
                                     stiffness: 180,
                                     damping: 22,
                                 }}
-                                src={heroImage}
+                                src={samadhan}
                                 alt="Samadhan"
                                 className="relative h-[340px] w-full rounded-2xl object-cover border border-[#7E3AF2]/40 shadow-[0_10px_50px_rgba(74,0,224,0.5)] z-10"
                             />

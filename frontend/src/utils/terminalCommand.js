@@ -1,10 +1,9 @@
 export const TERMINAL_BANNER =
-`███████╗ █████╗ ███╗   ███╗ █████╗ ██████╗ ██╗  ██╗ █████╗ ███╗   ██╗ ███████╗██████╗  █████╗ ███╗   ██╗██████╗ ███████╗
-██╔════╝██╔══██╗████╗ ████║██╔══██╗██╔══██╗██║  ██║██╔══██╗████╗  ██║ ██╔════╝██╔══██╗██╔══██╗████╗  ██║██╔══██╗██╔════╝
-███████╗███████║██╔████╔██║███████║██║  ██║███████║███████║██╔██╗ ██║ █████╗  ██████╔╝███████║██╔██╗ ██║██║  ██║█████╗
-╚════██║██╔══██║██║╚██╔╝██║██╔══██║██║  ██║██╔══██║██╔══██║██║╚██╗██║ ██╔══╝  ██╔══██╗██╔══██║██║╚██╗██║██║  ██║██╔══╝
-███████║██║  ██║██║ ╚═╝ ██║██║  ██║██████╔╝██║  ██║██║  ██║██║ ╚████║ ███████╗██║  ██║██║  ██║██║ ╚████║██████╔╝███████╗
-
+    `███████╗ █████╗ ███╗   ███╗ █████╗ ██████╗ ██╗  ██╗ █████╗ ███╗   ██╗   ███████╗██████╗  █████╗ ███╗   ██╗██████╗ ███████╗
+██╔════╝██╔══██╗████╗ ████║██╔══██╗██╔══██╗██║  ██║██╔══██╗████╗  ██║   ██╔════╝██╔══██╗██╔══██╗████╗  ██║██╔══██╗██╔════╝
+███████╗███████║██╔████╔██║███████║██║  ██║███████║███████║██╔██╗ ██║   █████╗  ██████╔╝███████║██╔██╗ ██║██║  ██║█████╗
+╚════██║██╔══██║██║╚██╔╝██║██╔══██║██║  ██║██╔══██║██╔══██║██║╚██╗██║   ██╔══╝  ██╔══██╗██╔══██║██║╚██╗██║██║  ██║██╔══╝
+███████║██║  ██║██║ ╚═╝ ██║██║  ██║██████╔╝██║  ██║██║  ██║██║ ╚████║   ███████╗██║  ██║██║  ██║██║ ╚████║██████╔╝███████╗
 
 Welcome to Samadhan Erande.dev
 
@@ -12,7 +11,7 @@ Type "help" to begin.`;
 
 export const COMMAND_NAMES = [
     "help", "whoami", "skills", "projects", "contact",
-    "stack", "pipeline", "status", "github", "date",
+    "stack", "pipeline", "status", "github", "linkedin", "date",
     "banner", "matrix", "coffee", "funfact", "sudo",
     "ls", "pwd", "cat", "bio", "cd", "clear", "exit",
 ];
@@ -33,7 +32,7 @@ export const resolveTerminalCommand = (raw = "") => {
                 "Welcome to Samadhan's Developer Terminal",
                 "",
                 "Navigation:",
-                "  cd <path>        → about | skills | project | blog | contact | dashboard | ~",
+                "  cd <path>        → splashscreen | about | skills | project | blog | contact | dashboard | ~",
                 "",
                 "Information:",
                 "  whoami           → developer profile",
@@ -41,10 +40,11 @@ export const resolveTerminalCommand = (raw = "") => {
                 "  skills           → technology stack",
                 "  projects         → portfolio projects list",
                 "  contact          → contact information",
+                "  github           → GitHub profile",
+                "  linkedin         → LinkedIn profile",
                 "  stack            → technology architecture",
                 "  pipeline         → CI/CD pipeline flow",
                 "  status           → system status",
-                "  github           → GitHub profile",
                 "  date             → current system date",
                 "  banner           → display ASCII banner",
                 "",
@@ -68,9 +68,12 @@ export const resolveTerminalCommand = (raw = "") => {
                 "│         SAMADHAN ERANDE              │",
                 "├──────────────────────────────────────┤",
                 "│  Role     : Full Stack Developer     │",
+                "│           : DevOps Engineer          │", 
+                "│           : Blockchain Developer     │",
                 "│  College  : IIIT Vadodara            │",
                 "│  Branch   : Information Technology   │",
                 "│  Location : India                    │",
+                "│  Phone    : +91 9405652637           │",
                 "│  Status   : Available for Hire       │",
                 "└──────────────────────────────────────┘",
             ],
@@ -135,11 +138,26 @@ export const resolveTerminalCommand = (raw = "") => {
                 "── Contact Information ───────────────────",
                 "",
                 "  Email    : erandesamadhan2003@gmail.com",
+                "  Phone    : +91 9405652637",
                 "  GitHub   : github.com/erandesamadhan2003",
                 "  LinkedIn : linkedin.com/in/samadhan-erande-103712326",
                 "  Location : India",
                 "",
                 "  → Use 'cd contact' to open contact form.",
+                "─────────────────────────────────────────",
+            ],
+        };
+    }
+
+    if (cmd === "linkedin") {
+        return {
+            type: "text",
+            lines: [
+                "── LinkedIn ─────────────────────────────",
+                "",
+                "  URL      : linkedin.com/in/samadhan-erande-103712326",
+                "  Phone    : +91 9405652637",
+                "",
                 "─────────────────────────────────────────",
             ],
         };
@@ -351,13 +369,15 @@ export const resolveTerminalCommand = (raw = "") => {
                 type: "text",
                 lines: [
                     "Usage: cd <path>",
-                    "Examples: cd about, cd skills, cd project, cd dashboard",
+                    "Examples: cd splashscreen, cd about, cd skills, cd project, cd dashboard",
                     'Type "help" to see all commands.',
                 ],
             };
         }
 
         const map = {
+            splashscreen: "/",
+            splash: "/",
             about: "/about",
             skills: "/skills-achievements",
             project: "/projects",
@@ -385,7 +405,18 @@ export const resolveTerminalCommand = (raw = "") => {
     }
 
     if (
-        ["about", "skills", "dashboard", "project", "projects", "blog", "blogs", "contact"].includes(cmd)
+        [
+            "splashscreen",
+            "splash",
+            "about",
+            "skills",
+            "dashboard",
+            "project",
+            "projects",
+            "blog",
+            "blogs",
+            "contact",
+        ].includes(cmd)
     ) {
         return {
             type: "text",
